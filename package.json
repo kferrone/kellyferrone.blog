@@ -10,6 +10,7 @@
     "builder": "gcloud builds submit --config=./builder/cloudbuild.yaml ./builder"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "purecss": "^1.0.0",
     "vue": "^2.5.17"
   },
@@ -17,10 +18,16 @@
     "@vue/cli-plugin-babel": "^3.0.4",
     "@vue/cli-plugin-eslint": "^3.0.4",
     "@vue/cli-service": "^3.0.4",
+    "coffee-loader": "^0.9.0",
+    "coffeescript": "^2.3.2",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "style-resources-loader": "^1.2.1",
-    "vue-template-compiler": "^2.5.17"
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "vue-cli-plugin-coffee": "^0.1.0",
+    "vue-loader": "^15.7.0",
+    "vue-template-compiler": "^2.6.8"
   },
   "eslintConfig": {
     "root": true,
