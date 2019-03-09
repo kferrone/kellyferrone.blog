@@ -1,0 +1,24 @@
+steps:
+
+- id: install
+  name: 'gcr.io/cloud-builders/npm'
+  args: ['install']
+
+- id: lint
+  name: 'gcr.io/cloud-builders/npm'
+  args: ['run','lint']
+
+- id: build
+  name: 'gcr.io/cloud-builders/npm'
+  args: ['run','build']
+  env:
+    - 'NODE_ENV=production'
+    
+- id: deploy
+  name: 'gcr.io/kellyferrone-211016/firebase'
+  args: ['deploy']
+  env:
+    - 'FIREBASE_TOKEN=$_FIREBASE_TOKEN'
+
+substitutions:
+  _FIREBASE_TOKEN: token
