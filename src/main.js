@@ -1,4 +1,3 @@
-import Purecss from '../node_modules/purecss/build/pure.css'
 import Vue from 'vue'
 import App from './App.vue'
 

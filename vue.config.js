@@ -1,6 +1,3 @@
-const Purecss = require('purecss');
-const pureFile = Purecss.getFilePath('pure.css');
-
 module.exports = {
   css: {
     loaderOptions: {
@@ -8,7 +5,7 @@ module.exports = {
       sass: {
         // @/ is an alias to src/
         // so this assumes you have a file named `src/variables.scss`
-        data: `@import "${pureFile}";`
+        data: `@import "../node_modules/purecss/build/pure.css";`
       }
     }
   }
