@@ -1,15 +1,16 @@
-<template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <button class="pure-button pure-button-primary">A Primary Button</button>
-  </div>
+<template lang="pug">
+  #app
+    img(alt="Vue logo" src="./assets/logo.png")
+    HelloWorld(msg="Welcome to Your Vue.js App")
+    button(class="pure-button pure-button-primary")
+        | A Primary Button Dude
+
 </template>
 
 <script lang="coffee">
 import HelloWorld from './components/HelloWorld.vue'
 
-export default 
+export default
   name: 'app'
   components: {
     HelloWorld
@@ -18,7 +19,7 @@ export default
 </script>
 
 <style lang="sass">
-#app 
+#app
   font-family: 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
