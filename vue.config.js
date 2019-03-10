@@ -1,20 +1,33 @@
+const purecssDir = "~purecss/build";
+
 module.exports = {
   chainWebpack: config => {
+
+    //for coffee
     config.module
       .rule('coffee')
       .test(/\.coffee$/)
       .use('coffee-loader')
       .loader('coffee-loader')
       .end()
+
+  },
+  configureWebpack: {
+    devtool: 'source-map',
+
   },
   css: {
     loaderOptions: {
-      // pass options to sass-loader
       sass: {
         // @/ is an alias to src/
         // so this assumes you have a file named `src/variables.scss`
-        data: `@import "../node_modules/purecss/build/pure.css";`
+        data: `@import "${purecssDir}/pure.css"`,
+        options: {
+          indentedSyntax: true
+        }
       }
     }
   }
 }
+
+
