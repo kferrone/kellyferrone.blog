@@ -22,11 +22,7 @@ export default new Router({
     {
         path: '*',
         name: 'dynamo',
-        component: () => {
-            /* eslint-disable */
-            console.log('Hello route change')
-            return import(/* webpackChunkName: "dynamo" */ './views/Dynamo.vue')
-        }
+        component: () => import(/* webpackChunkName: "dynamo" */ './views/Dynamo.vue')
     }
   ]
 })
