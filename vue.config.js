@@ -1,5 +1,3 @@
-const purecssDir = "~purecss/build";
-
 module.exports = {
   chainWebpack: config => {
 
@@ -21,7 +19,7 @@ module.exports = {
       sass: {
         // @/ is an alias to src/
         // so this assumes you have a file named `src/variables.scss`
-        data: `@import "${purecssDir}/pure.css"`,
+        data: `@import "./src/theme/style.scss"`,
         options: {
           indentedSyntax: true
         }

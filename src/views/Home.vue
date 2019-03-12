@@ -1,23 +1,28 @@
 <template lang="pug">
-  #home
-    img(
-        alt="Vue logo" 
-        src="../assets/logo.png")
-    HelloWorld(
-        msg="Welcome to Your Vue.js App")
-    button(
-        class="pure-button pure-button-primary")
-        | A Primary Button Dude
+    BlogView(
+        v-bind:title="title"
+        v-bind:v-html="title"
+    )
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
-export default {
-  name: 'home',
-  components: {
-    HelloWorld
-  }
-}
+<script lang="coffee">
+import BlogView from '@/components/BlogView.vue'
+export default 
+    name: 'home'
+    components: {
+        BlogView
+    }
+    watch:
+        title: ->
+            @$root.homePage.title
+    computed:
+        homePage: ->
+            @$root.homePage
+    data: ->
+        page: ""
+        title: ""
 </script>
+
+<style lang="sass">
+
+</style>

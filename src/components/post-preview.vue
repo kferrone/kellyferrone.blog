@@ -2,7 +2,7 @@
 .post-preview
   h2.blog-title
     router-link(
-        v-bind:to='linker') 
+        v-bind:to='linker')
         | {{ title }}
   .blog-excerpt
     #blog-excerpt(
@@ -34,13 +34,13 @@ export default
 
 <style lang="sass">
 .post-preview
-    .blog-content 
+    .blog-content
         transition: opacity 2s
         opacity: 0
-    .blog-content:hover 
-    .blog-content-loaded 
+    .blog-content:hover
+    .blog-content-loaded
         opacity: 1
-    .blog-content-hidden 
+    .blog-content-hidden
         opacity: 0
         display: block
         line-height: 0
