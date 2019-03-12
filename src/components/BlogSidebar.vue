@@ -15,7 +15,7 @@ aside.blog-sidebar.sidebar.pure-u-1.pure-u-md-1-4
         href='https://github.com/kferrone') 
         | View My GitHub Profile
     BlogMenu(
-        :view-list='[]')
+        :pages='pages')
 </template>
 
 <script lang="coffee">

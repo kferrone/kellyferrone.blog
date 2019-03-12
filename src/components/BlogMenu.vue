@@ -2,18 +2,18 @@
 nav.nav
     ul.blog-menu.nav-list
         li.nav-item(
-            v-for="view in viewList"
-            :key="view.id")
+            v-for="page in pages"
+            :key="page.id")
             router-link.pure-button(
-                :to="view.permalink")
-                | {{ view.title }}
+                :to="page.id")
+                | {{ page.title }}
 </template>
 
 <script lang="coffee">
 export default
     name: 'blog-menu'
     props:
-        viewList: Array
+        pages: Array
 </script>
 
 <style lang="sass">

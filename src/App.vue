@@ -1,6 +1,6 @@
 <template lang="pug" >
   #app.pure-g.wrapper
-    template(v-if="homePageLoaded")
+    template(v-if="pagesLoaded && blogLoaded")
         BlogSidebar(
             v-bind:blog="blog",
             v-bind:pages="pages"
@@ -25,25 +25,26 @@ export default
     data: ->
         blog: Object
         pages: Array
-        homePage: Object
-        homePageLoaded: false
+        pagesLoaded: false
+        blogLoaded: false
     provide: ->
         blog: @blog
-        homePage: @homePage
         message: "Hell there"
         getPage: @getPage
     methods:
         setBlog: ->
+            @blogLoaded = false
             @$blogger.getBlog().then(
-                (response) => @blog = response.data
+                (response) => 
+                    @blog = response.data
+                    @blogLoaded = true
             )
         setPages: ->
-            homePageLoaded = false
+            @pagesLoaded = false
             @$blogger.getPages().then(
                 (response) => 
                     @pages = response.data.items
-                    @homePage = @getPage('Home')
-                    @homePageLoaded = true
+                    @pagesLoaded = true
             )
         getPage: (title) ->
             @pages.filter(
