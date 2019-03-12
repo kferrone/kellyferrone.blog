@@ -24,3 +24,4 @@ firebase-debug.log*
 # IDE files
 .idea
 .settings/
+.*.md.html
