@@ -18,6 +18,7 @@ import BlogFooter from '@/components/BlogFooter.vue'
 
 export default
     name: 'app'
+    inject: ['message']
     components: {
         BlogSidebar
         BlogFooter
@@ -30,6 +31,7 @@ export default
     provide: ->
         blog: @blog
         homePage: @homePage
+        message: "Hell there"
     methods:
         setBlog: ->
             @$blogger.getBlog().then(

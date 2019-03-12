@@ -8,7 +8,7 @@
 <script lang="coffee">
 export default 
     name: 'blog-view'
-    props: ->
+    props: 
         title: ""
 </script>
 
