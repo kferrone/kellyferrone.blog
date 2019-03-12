@@ -31,6 +31,7 @@ export default
         blog: @blog
         message: "Hell there"
         getPage: @getPage
+        sanitizeTitle: @sanitizeTitle
     methods:
         setBlog: ->
             @blogLoaded = false
@@ -47,9 +48,12 @@ export default
                     @pagesLoaded = true
             )
         getPage: (title) ->
+            title = @sanitizeTitle(title)
             @pages.filter(
-                (page) => page.title == title
+                (page) => @sanitizeTitle(page.title) == title
             )[0]
+        sanitizeTitle: (title) ->
+            title.toLowerCase().split(' ').join('_')
     mounted: ->
         @setBlog()
         @setPages()

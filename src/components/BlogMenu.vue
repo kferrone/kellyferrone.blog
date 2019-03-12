@@ -5,13 +5,14 @@ nav.nav
             v-for="page in pages"
             :key="page.id")
             router-link.pure-button(
-                :to="page.id")
+                :to="sanitizeTitle(page.title)")
                 | {{ page.title }}
 </template>
 
 <script lang="coffee">
 export default
     name: 'blog-menu'
+    inject: ['sanitizeTitle']
     props:
         pages: Array
 </script>

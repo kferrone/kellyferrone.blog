@@ -1,21 +1,46 @@
-<template>
-  <div class="dynamo">
-    <h1>This is the dynamo page {{ hello }}</h1>
-    <Tester></Tester>
-  </div>
+<template lang="pug">
+    span#dynamo
+        template(v-if="is404")
+            p Sorry that page does not exist
+        template(v-else="isPage")
+            BlogView(
+                v-bind:title="page.title"
+                v-bind:content="page.content"
+            )
 </template>
 
 <script lang="coffee">
-import Tester from '@/components/Tester.vue'
+import BlogView from '@/components/BlogView.vue'
 export default
     name: 'dynamo'
+    inject: ['getPage']
     components: {
-        Tester
+        BlogView
     }
     data: ->
         hello: 'world'
-    beforeCreate: () ->
+        isPage: false
+        is404: false
+        isLoaded: false
+        page: null
+    watch:
+        '$route': (to,frome) ->
+            console.log("Snagged the router on change",to)
+            @isPathToPage(to.path)
+    methods:
+        isPathToPage: (path) ->
+            path = path.substr(1)
+            page = @getPage(path)
+            if (page?)
+                @isPage = true
+                @is404 = false
+                @page = page
+            else
+                @is404 = true
+                @isPage = false
+            @isLoaded = true
+    created: () ->
         console.log("Snagged the router",@$route)
-    beforeRouteUpdate: (to, from, next) =>
-        console.log("The new path is #{to.path}")
+        @isPathToPage(@$route.path)
+    
 </script>
