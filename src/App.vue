@@ -1,14 +1,13 @@
-<template lang="pug">
-  #app.pure-g.wrapper(
-      v-if="homePageLoaded"
-  )
-    BlogSidebar(
-        v-bind:blog="blog",
-        v-bind:pages="pages"
-    )
-    section.content.pure-u-1.pure-u-md-3-4
-        router-view
-        BlogFooter
+<template lang="pug" >
+  #app.pure-g.wrapper
+    template(v-if="homePageLoaded")
+        BlogSidebar(
+            v-bind:blog="blog",
+            v-bind:pages="pages"
+        )
+        section.content.pure-u-1.pure-u-md-3-4
+            router-view
+            BlogFooter
 
 </template>
 
@@ -32,12 +31,14 @@ export default
         blog: @blog
         homePage: @homePage
         message: "Hell there"
+        getPage: @getPage
     methods:
         setBlog: ->
             @$blogger.getBlog().then(
                 (response) => @blog = response.data
             )
         setPages: ->
+            homePageLoaded = false
             @$blogger.getPages().then(
                 (response) => 
                     @pages = response.data.items
@@ -48,7 +49,7 @@ export default
             @pages.filter(
                 (page) => page.title == title
             )[0]
-    created: ->
+    mounted: ->
         @setBlog()
         @setPages()
 

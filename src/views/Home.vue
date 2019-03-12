@@ -1,6 +1,7 @@
 <template lang="pug">
     BlogView(
-        title="Home"
+        v-bind:title="page.title"
+        v-bind:content="page.content"
     )
 </template>
 
@@ -8,13 +9,15 @@
 import BlogView from '@/components/BlogView.vue'
 export default 
     name: 'home'
-    inject: ['message']
+    inject: ['getPage']
     components: {
         BlogView
     }
     data: ->
         page: ""
         title: ""
+    mounted: ->
+        @page = @getPage('Home')
 </script>
 
 <style lang="sass">

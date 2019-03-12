@@ -1,7 +1,9 @@
 <template lang="pug">
     .blog-view
         h1 {{ title }}
-        slot
+        .page-content(
+            v-html="content"
+        )
 
 </template>
 
@@ -10,6 +12,7 @@ export default
     name: 'blog-view'
     props: 
         title: ""
+        content: ""
 </script>
 
 <style lang="sass">
