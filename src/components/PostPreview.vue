@@ -1,35 +1,24 @@
 <template lang="pug">
-.post-preview
+span.post-preview
   h2.blog-title
     router-link(
         v-bind:to='linker')
-        | {{ title }}
+        | {{ post.title }}
   .blog-excerpt
     #blog-excerpt(
-        v-html='excerpt')
+        v-html='post.content')
+    br
 </template>
 
 <script lang="coffee">
 export default
     name: 'post-preview'
+    inject: ['sanitizeTitle']
     props:
-        title: String
-        slug: String
-        excerpt: String
-        id: String
-        tags: Array
-        categories: Array
-        heritage: String
-    data: ->
-        hidden: false
-        content: ''
-        loaded: false
+        post: Object
     computed:
         linker: ->
-            if @heritage == 'blogger'
-                return @id
-            else
-                return '/post/' + @slug
+            '/post/' + @sanitizeTitle(@post.title)
 </script>
 
 <style lang="sass">

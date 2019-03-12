@@ -1,8 +1,22 @@
 <template lang="pug">
 nav.nav
-    ul.blog-menu.nav-list
+    ul#view-list.blog-menu.nav-list
+        li.nav-item
+            router-link.pure-button(
+                to="/")
+                | Home
+        li.nav-item
+            router-link.pure-button(
+                to="/blog")
+                | Blog
+        li.nav-item
+            router-link.pure-button(
+                to="/contact")
+                | Contact
+    ul#page-list.blog-menu.nav-list
         li.nav-item(
             v-for="page in pages"
+            v-if="page.title != 'Home'"
             :key="page.id")
             router-link.pure-button(
                 :to="'/' + sanitizeTitle(page.title)")

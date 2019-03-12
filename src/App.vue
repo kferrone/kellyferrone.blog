@@ -25,15 +25,16 @@ export default
     data: ->
         blog: Object
         pages: Array
-        posts: Array
         pagesLoaded: false
         blogLoaded: false
         postsLoaded: false
     provide: ->
         blog: @blog
+        posts: @posts
         message: "Hell there"
         getPage: @getPage
         getPost: @getPost
+        getPosts: @getPosts
         sanitizeTitle: @sanitizeTitle
     methods:
         setBlog: ->
@@ -67,6 +68,8 @@ export default
             @posts.filter(
                 (post) => @sanitizeTitle(post.title) == title
             )[0]
+        getPosts: ->
+            @posts
         sanitizeTitle: (title) ->
             title.toLowerCase().split(' ').join('_')
     mounted: ->

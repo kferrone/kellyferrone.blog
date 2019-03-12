@@ -1,11 +1,4 @@
-import BloggerAPI from './BloggerAPI.js';
-const axios = window.axios;
-
-export function getBloggerAPI(id,key) {
-    return new BloggerAPI(id,key);
-}
-
-
+import axios from 'axios'
 /**
  * Sends an email with axios to google cloud functions
  */
