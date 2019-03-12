@@ -5,7 +5,7 @@ nav.nav
             v-for="page in pages"
             :key="page.id")
             router-link.pure-button(
-                :to="sanitizeTitle(page.title)")
+                :to="'/' + sanitizeTitle(page.title)")
                 | {{ page.title }}
 </template>
 

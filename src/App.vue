@@ -1,6 +1,6 @@
 <template lang="pug" >
   #app.pure-g.wrapper
-    template(v-if="pagesLoaded && blogLoaded")
+    template(v-if="pagesLoaded && postsLoaded && blogLoaded")
         BlogSidebar(
             v-bind:blog="blog",
             v-bind:pages="pages"
@@ -25,12 +25,15 @@ export default
     data: ->
         blog: Object
         pages: Array
+        posts: Array
         pagesLoaded: false
         blogLoaded: false
+        postsLoaded: false
     provide: ->
         blog: @blog
         message: "Hell there"
         getPage: @getPage
+        getPost: @getPost
         sanitizeTitle: @sanitizeTitle
     methods:
         setBlog: ->
@@ -47,16 +50,29 @@ export default
                     @pages = response.data.items
                     @pagesLoaded = true
             )
+        setPosts: ->
+            @postsLoaded = false
+            @$blogger.getPosts().then(
+                (response) =>
+                    @posts = response.data.items
+                    @postsLoaded = true
+            )
         getPage: (title) ->
             title = @sanitizeTitle(title)
             @pages.filter(
                 (page) => @sanitizeTitle(page.title) == title
+            )[0]
+        getPost: (title) ->
+            title = @sanitizeTitle(title)
+            @posts.filter(
+                (post) => @sanitizeTitle(post.title) == title
             )[0]
         sanitizeTitle: (title) ->
             title.toLowerCase().split(' ').join('_')
     mounted: ->
         @setBlog()
         @setPages()
+        @setPosts()
 
 </script>
 
