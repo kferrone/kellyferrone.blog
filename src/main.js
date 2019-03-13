@@ -3,6 +3,7 @@ import App from './App.vue'
 import axios from 'axios'
 import router from './router'
 import BloggerAPI from './lib/BloggerAPI.js'
+import getGravatar from './lib/gravatar'
 
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
@@ -12,6 +13,7 @@ new Vue({
     router,
     render: h => h(App),
     provide: {
-        "message": "Hello vuebes"
+        message: "Hello vuebes",
+        getGravatar: getGravatar
     }
 }).$mount('#app')

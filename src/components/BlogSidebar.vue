@@ -2,7 +2,7 @@
 aside.blog-sidebar.sidebar.pure-u-1.pure-u-md-1-4
   header.header
     img(
-        v-bind:src='getGravatar()' 
+        v-bind:src="getGravatar('info@kellyferrone.com')" 
         alt='Logo')
     h1.brand-title
       a(
@@ -23,16 +23,13 @@ import BlogMenu from '@/components/BlogMenu.vue'
 
 export default
     name: 'blog-sidebar'
-    #inject: ['blog']
+    inject: ['getGravatar']
     components: {
         BlogMenu
     }
     props:
         blog: null
         pages: null
-    methods:
-        getGravatar: ->
-            #util.getGravatar(@$root.profile.email,150)
 </script>
 
 <style lang="sass">
