@@ -1,22 +1,18 @@
 <template lang="pug">
-    BlogView(
-        v-bind:title="page.title"
-        v-bind:content="page.content"
-    )
+.page-content(
+    v-html="page.content"
+)
 </template>
 
 <script lang="coffee">
-import BlogView from '@/components/BlogView.vue'
 export default 
     name: 'home'
-    inject: ['getPage']
-    components: {
-        BlogView
-    }
+    inject: ['getPage','setTitle']
     data: ->
         page: ""
         title: ""
-    mounted: ->
+    created: ->
+        @setTitle('Home')
         @page = @getPage('Home')
 </script>
 

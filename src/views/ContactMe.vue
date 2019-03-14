@@ -26,6 +26,7 @@ div
 <script lang="coffee">
 export default
     name: 'contact-me'
+    inject: ['setTitle']
     data: ->
         sent: false
         email:
@@ -49,6 +50,8 @@ export default
                 (e) => console.log("Uh oh the email did not send!",e)
             )
             event.preventDefault()
+    created: ->
+        @setTitle('Contact Me')
 </script>
 
 <style lang="sass">

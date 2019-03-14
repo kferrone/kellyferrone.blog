@@ -1,5 +1,5 @@
 <template lang="pug">
-span#blog-feed.posts
+div#blog-feed.posts
     PostPreview(
         v-for='post in posts' 
         v-bind:post='post' 
@@ -11,13 +11,14 @@ span#blog-feed.posts
 import PostPreview from '@/components/PostPreview.vue'
 export default
     name: 'blog-feed'
-    inject: ['getPosts']
+    inject: ['getPosts','setTitle']
     components: {
         PostPreview
     }
     data: ->
         posts: Array
     created: ->
+        @setTitle('Blog Feed')
         @posts = @getPosts()
 </script>
 

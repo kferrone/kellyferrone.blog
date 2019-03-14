@@ -6,6 +6,9 @@
             v-bind:pages="pages"
         )
         section.content.pure-u-1.pure-u-md-3-4
+            BlogHeader(
+                :title="title"
+            )
             router-view
             BlogFooter
 
@@ -14,6 +17,7 @@
 <script lang="coffee">
 import BlogSidebar from '@/components/BlogSidebar.vue'
 import BlogFooter from '@/components/BlogFooter.vue'
+import BlogHeader from '@/components/BlogHeader.vue'
 
 export default
     name: 'app'
@@ -21,8 +25,10 @@ export default
     components: {
         BlogSidebar
         BlogFooter
+        BlogHeader
     }
     data: ->
+        title: "Home"
         blog: Object
         pages: Array
         pagesLoaded: false
@@ -36,6 +42,7 @@ export default
         getPost: @getPost
         getPosts: @getPosts
         sanitizeTitle: @sanitizeTitle
+        setTitle: @setTitle
     methods:
         setBlog: ->
             @blogLoaded = false
@@ -72,6 +79,8 @@ export default
             @posts
         sanitizeTitle: (title) ->
             title.toLowerCase().split(' ').join('_')
+        setTitle: (title) ->
+            document.title = @title = title
     mounted: ->
         @setBlog()
         @setPages()
