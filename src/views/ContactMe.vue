@@ -38,7 +38,7 @@ export default
             console.log('Events work!',event)
         sendEmailEventHandler: (event) ->
             console.log("The email will be sent.",event)
-            @$http.post('/contact-me',@email).then(
+            @$http.post('https://us-central1-kellyferrone-211016.cloudfunctions.net/sendgridEmail',@email).then(
                 (response) => 
                     console.log("Yay the email sent!",response)
                     @sent = true
