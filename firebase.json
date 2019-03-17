@@ -8,12 +8,16 @@
     ],
     "rewrites": [
       {
-        "source": "**",
-        "destination": "/index.html"
-      },
-      {
           "source": "/contact-me",
           "function": "sendgridEmail"
+      },
+      {
+          "source": "/sitemap.xml",
+          "function": "siteMap"
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
       }
     ]
   }
