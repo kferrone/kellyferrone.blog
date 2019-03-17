@@ -29,6 +29,7 @@ export default
     inject: ['setTitle']
     data: ->
         sent: false
+        contactEndpoint: '/contact-me'
         email:
             subject: ""
             from: ""
@@ -38,7 +39,8 @@ export default
             console.log('Events work!',event)
         sendEmailEventHandler: (event) ->
             console.log("The email will be sent.",event)
-            @$http.post('https://us-central1-kellyferrone-211016.cloudfunctions.net/sendgridEmail',@email).then(
+            @fxURL = 'https://us-central1-kellyferrone-211016.cloudfunctions.net/sendgridEmail'
+            @$http.post(@contactEndpoint,@email).then(
                 (response) => 
                     console.log("Yay the email sent!",response)
                     @sent = true

@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
+    "serve:fire": "firebase serve",
     "build": "vue-cli-service build",
+    "build:fire": "vue-cli-service build --mode fire",
     "lint": "vue-cli-service lint",
     "deploy": "firebase deploy",
     "builder": "gcloud builds submit --config=./builder/cloudbuild.yaml ./builder"
