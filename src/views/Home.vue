@@ -9,10 +9,17 @@ export default
     name: 'home'
     inject: ['getPage','setTitle']
     data: ->
-        page: ""
-        title: ""
+        page: ''
+        title: 'Home'
+    methods:
+        track: ->
+            @$ga.page(
+                page: '/'
+                title: @title
+                location: window.location.href
+            )
     created: ->
-        @setTitle('Home')
+        @setTitle(@title)
         @page = @getPage('Home')
 </script>
 

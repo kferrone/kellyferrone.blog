@@ -15,6 +15,7 @@ steps:
     - 'NODE_ENV=production'
     - 'VUE_APP_BLOGGER_API_KEY=$_VUE_APP_BLOGGER_API_KEY'
     - 'VUE_APP_BLOGGER_BLOG_ID=$_VUE_APP_BLOGGER_BLOG_ID'
+    - 'VUE_APP_GOOGLE_ANALYTICS=$_VUE_APP_GOOGLE_ANALYTICS'
     
 - id: deploy
   name: 'gcr.io/kellyferrone-211016/firebase'
@@ -26,3 +27,4 @@ substitutions:
   _FIREBASE_TOKEN: token
   _VUE_APP_BLOGGER_API_KEY: key
   _VUE_APP_BLOGGER_BLOG_ID: id
+  _VUE_APP_GOOGLE_ANALYTICS: ua

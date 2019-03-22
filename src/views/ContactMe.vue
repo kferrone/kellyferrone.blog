@@ -30,11 +30,18 @@ export default
     data: ->
         sent: false
         contactEndpoint: '/contact-me'
+        title: 'Contact Me'
         email:
             subject: ""
             from: ""
             body: ""
     methods:
+        track: ->
+            @$ga.page(
+                page: '/contact'
+                title: @title
+                location: window.location.href
+            )
         resetEmail: (event) ->
             console.log('Events work!',event)
         sendEmailEventHandler: (event) ->
@@ -53,7 +60,7 @@ export default
             )
             event.preventDefault()
     created: ->
-        @setTitle('Contact Me')
+        @setTitle(@title)
 </script>
 
 <style lang="sass">

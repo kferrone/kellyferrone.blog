@@ -17,8 +17,16 @@ export default
     }
     data: ->
         posts: Array
+        title: 'Blog Feed'
+    methods:
+        track: ->
+            @$ga.page(
+                page: '/blog'
+                title: @title
+                location: window.location.href
+            )
     created: ->
-        @setTitle('Blog Feed')
+        @setTitle(@title)
         @posts = @getPosts()
 </script>
 
