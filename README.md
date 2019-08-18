@@ -1,14 +1,27 @@
 # Kellyferrone.com
 
-Template for project creation of Vue inside CodeMix
+The front end blog site. Built with VueJS and friends. 
 
-## Contents
+## Prerequisites
 
-This template project is just an example Hello World that guide you through the use of Vue to build a very simple web application that display the Hello World!!! Greeting.
+- NodeJS ^8.9
+- npm ^5.6
 
-This example has been started with the vue-cli and webpack-simple
 
-## Project setup
+## Getting Started
+
+## Steps to Run inside CodeMix/vscode
+
+
+1. From the `Quick Open`  Command Palette (ctrl/cmd + shift + p) search for:
+     `Terminal: Create New Integrated Terminal`
+2. From the `Quick Open` options select this project.
+3. Once you are inside the Terminal, execute: `npm install`
+4. Finally to run this example run `npm run serve`
+5. Open your browser on http://localhost:8080
+6. To build run `npm run build` and generate HTML/CSS/JS minification.
+
+### Project setup
 ```
 npm install
 ```

@@ -19,7 +19,7 @@ steps:
     
 - id: deploy
   name: 'gcr.io/kellyferrone-211016/firebase'
-  args: ['deploy']
+  args: ['deploy','--only','hosting']
   env:
     - 'FIREBASE_TOKEN=$_FIREBASE_TOKEN'
 
