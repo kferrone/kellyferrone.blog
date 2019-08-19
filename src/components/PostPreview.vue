@@ -6,7 +6,7 @@ span.post-preview
         | {{ post.title }}
   .blog-excerpt
     #blog-excerpt(
-        v-html='post.content')
+        v-html='post.exerpt')
     br
 </template>
 

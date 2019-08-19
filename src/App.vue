@@ -31,6 +31,7 @@ export default
         title: "Home"
         blog: Object
         pages: Array
+        posts: Array
         pagesLoaded: false
         blogLoaded: false
         postsLoaded: false
@@ -46,21 +47,21 @@ export default
     methods:
         setBlog: ->
             @blogLoaded = false
-            @$blogger.getBlog().then(
+            @$http.get('/blog/meta').then(
                 (response) => 
                     @blog = response.data
                     @blogLoaded = true
             )
         setPages: ->
             @pagesLoaded = false
-            @$blogger.getPages().then(
+            @$http.get('/blog/pages').then(
                 (response) => 
                     @pages = response.data.items
                     @pagesLoaded = true
             )
         setPosts: ->
             @postsLoaded = false
-            @$blogger.getPosts().then(
+            @$http.get('/blog/posts').then(
                 (response) =>
                     @posts = response.data.items
                     @postsLoaded = true

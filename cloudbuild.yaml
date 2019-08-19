@@ -25,6 +25,4 @@ steps:
 
 substitutions:
   _FIREBASE_TOKEN: token
-  _VUE_APP_BLOGGER_API_KEY: key
-  _VUE_APP_BLOGGER_BLOG_ID: id
   _VUE_APP_GOOGLE_ANALYTICS: ua

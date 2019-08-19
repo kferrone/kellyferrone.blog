@@ -6,8 +6,7 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [
-      {
+    "rewrites": [{
         "source": "/contact-me",
         "function": "sendgridEmail"
       },
@@ -22,12 +21,12 @@
       {
         "source": "/atom.xml",
         "function": "atomFeed"
-	  },
+      },
       {
         "source": "/blog/**",
         "function": "blogFx"
       },
-	  {
+      {
         "source": "**",
         "destination": "/index.html"
       }

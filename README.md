@@ -50,6 +50,5 @@ npm run lint
 
 | name | Description | default |  
 | ---- | ----------- | ------- |  
-| VUE_APP_BLOGGER_API_KEY | Bloggers api key | some-key |  
-| VUE_APP_BLOGGER_BLOG_ID | The ID of your blogs ID |  id | 
+| VUE_APP_GOOGLE_ANALYTICS | Analytics key | some-key |  
 | FIREBASE_TOKEN | Firebase deploy token from `firebase login:ci` | token | 
