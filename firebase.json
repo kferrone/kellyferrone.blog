@@ -8,18 +8,22 @@
     ],
     "rewrites": [
       {
-          "source": "/contact-me",
-          "function": "sendgridEmail"
+        "source": "/contact-me",
+        "function": "sendgridEmail"
       },
       {
-          "source": "/sitemap.xml",
-          "function": "siteMap"
+        "source": "/sitemap.xml",
+        "function": "siteMap"
+      },
+      {
+        "source": "/rss.xml",
+        "function": "rssFeed"
+      },
+      {
+        "source": "/atom.xml",
+        "function": "atomFeed"
 	  },
 	  {
-		  "source": "/rss.xml",
-		  "function": "rssFeed"
-	  },
-      {
         "source": "**",
         "destination": "/index.html"
       }
