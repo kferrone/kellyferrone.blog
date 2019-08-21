@@ -61,6 +61,10 @@ export default
             event.preventDefault()
     created: ->
         @setTitle(@title)
+        console.log('The contact page loaded')
+        @track()
+    mounted: ->
+        console.log('the contact page mounted')
 </script>
 
 <style lang="sass">

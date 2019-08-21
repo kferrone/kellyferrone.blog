@@ -21,6 +21,7 @@ export default
     created: ->
         @setTitle(@title)
         @page = @getPage('Home')
+        @track()
 </script>
 
 <style lang="sass">

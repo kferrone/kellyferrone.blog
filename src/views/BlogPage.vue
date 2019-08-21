@@ -22,6 +22,12 @@ export default
         '$route': (to,frome) ->
             @loadPage(to.path)
     methods:
+        track: (path, title) ->
+            @$ga.page(
+                page: "/#{path}"
+                title: title
+                location: window.location.href
+            )
         loadPage: (path) ->
             path = path.substr(1)
             page = @getPage(path)
@@ -30,6 +36,7 @@ export default
                 @is404 = false
                 @page = page
                 @setTitle(page.title)
+                @track(path, page.title)
             else
                 @is404 = true
                 @isPage = false

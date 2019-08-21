@@ -21,6 +21,12 @@ export default
         '$route': (to,frome) ->
             @loadPost(to.path)
     methods:
+        track: (path, title) ->
+            @$ga.page(
+                page: "/post/#{path}"
+                title: title
+                location: window.location.href
+            )
         loadPost: (path) ->
             post = @getPost(path)
             if (post?)
@@ -28,6 +34,7 @@ export default
                 @is404 = false
                 @post = post
                 @setTitle(post.title)
+                @track(path, post.title)
             else
                 @is404 = true
                 @isPost = false

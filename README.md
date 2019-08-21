@@ -50,5 +50,6 @@ npm run lint
 
 | name | Description | default |  
 | ---- | ----------- | ------- |  
-| VUE_APP_GOOGLE_ANALYTICS | Analytics key | some-key |  
+| VUE_APP_GOOGLE_ANALYTICS_ID | Analytics key | some-key |  
+| VUE_APP_GOOGLE_ANALYTICS_ID | Analytics Debugging | false |  
 | FIREBASE_TOKEN | Firebase deploy token from `firebase login:ci` | token | 

@@ -9,7 +9,12 @@ Vue.config.productionTip = false
 Vue.prototype.$http = axios
 
 Vue.use(VueAnalytics, {
-  id: process.env.VUE_APP_GOOGLE_ANALYTICS
+  id: process.env.VUE_APP_GOOGLE_ANALYTICS_ID,
+  debug: {
+    enabled: process.env.VUE_APP_GOOGLE_ANALYTICS_DEBUG == 'true' ? true : false,
+    trace: true,
+    sendHitTask: true
+  }
 })
 
 new Vue({

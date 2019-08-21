@@ -28,6 +28,7 @@ export default
     created: ->
         @setTitle(@title)
         @posts = @getPosts()
+        @track()
 </script>
 
 <style lang="sass">
