@@ -1,4 +1,18 @@
+const RobotstxtPlugin = require("robotstxt-webpack-plugin");
+
+const robotsTxtOpts = {
+  policy: [
+    {
+      userAgent: "*",
+      allow: "/"
+    }
+  ],
+  sitemap: `${process.env.VUE_APP_HOST}/${process.env.VUE_APP_BLOG_ID}/sitemap.xml`,
+  host: `${process.env.VUE_APP_HOST}`
+}
+
 module.exports = {
+  baseUrl: process.env.VUE_APP_HOST,
   chainWebpack: config => {
 
     //for coffee
@@ -12,7 +26,7 @@ module.exports = {
   },
   configureWebpack: {
     devtool: 'source-map',
-
+    plugins: [new RobotstxtPlugin(robotsTxtOpts)]
   },
   css: {
     loaderOptions: {

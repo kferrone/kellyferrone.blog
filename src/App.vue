@@ -1,10 +1,10 @@
 <template lang="pug" >
   #app.pure-g.wrapper
+    BlogSidebar(
+        v-bind:blog="blog",
+        v-bind:pages="pages"
+    )
     template(v-if="pagesLoaded && postsLoaded && blogLoaded")
-        BlogSidebar(
-            v-bind:blog="blog",
-            v-bind:pages="pages"
-        )
         section.content.pure-u-1.pure-u-md-3-4
             BlogHeader(
                 :title="title"
@@ -29,7 +29,7 @@ export default
     }
     data: ->
         title: "Home"
-        blog: Object
+        blog: null
         pages: Array
         posts: Array
         pagesLoaded: false
@@ -45,6 +45,9 @@ export default
         getPosts: @getPosts
         sanitizeTitle: @sanitizeTitle
         setTitle: @setTitle
+        blogLoaded: @blogLoaded
+        pagesLoaded: @pagesLoaded
+        postsLoaded: @postsLoaded
     methods:
         setBlog: ->
             @blogLoaded = false

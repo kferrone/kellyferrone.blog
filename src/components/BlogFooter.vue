@@ -20,16 +20,16 @@ export default
 
 <style lang="sass">
 .blog-footer
-    padding: 1em 0
-    a 
-        color: #ccc
-        font-size: 80%
-    .pure-menu
-        a
-            &:hover
-                background: none
-            &:focus
-                background: none
+  padding: 1em 0
+  a
+    color: #ccc
+    font-size: 80%
+  .pure-menu
+    a
+      &:hover
+        background: none
+      &:focus
+        background: none
 @media (min-width: 48em)
     .blog-footer
         text-align: center

@@ -13,7 +13,9 @@ nav.nav
             router-link.pure-button(
                 to="/contact")
                 | Contact
-    ul#page-list.blog-menu.nav-list
+    ul#page-list.blog-menu.nav-list(
+      v-if="pages.length > 0"
+    )
         li.nav-item(
             v-for="page in pages"
             v-if="page.title != 'Home'"
