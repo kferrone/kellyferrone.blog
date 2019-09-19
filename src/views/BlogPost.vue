@@ -6,22 +6,10 @@ span#blog-post
         .page-content(
             v-html="post.content"
         )
-        iframe(
-            allowtransparency='allowtransparency' 
-            frameborder='0' 
-            height='88px' 
-            name='comment-editor' 
-            v-bind:src='getCommentUrl(post.blog.id,post.id)' 
-            width='100%' 
-            data-resized='true'
-            v-on:onLoad='commentSubmitted()'
-            sandbox='allow-same-origin allow-scripts allow-popups allow-forms'
-            
-            )
 </template>
 
 <script lang="coffee">
-export default 
+export default
     name: 'blog-post'
     inject: ['getPost','setTitle']
     data: ->

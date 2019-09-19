@@ -15,13 +15,14 @@ Vue.use(VueAnalytics, {
     trace: true,
     sendHitTask: true
   }
-})
+});
+
 
 new Vue({
-    router,
-    render: h => h(App),
-    provide: {
-        message: "Hello vuebes",
-        getGravatar: getGravatar
-    }
+  router,
+  render: h => h(App),
+  provide: {
+    message: "Hello vuebes",
+    getGravatar: getGravatar
+  }
 }).$mount('#app')

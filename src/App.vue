@@ -35,10 +35,11 @@ export default
         pagesLoaded: false
         blogLoaded: false
         postsLoaded: false
+        blogID: process.env.VUE_APP_BLOG_ID
     provide: ->
         blog: @blog
         posts: @posts
-        message: "Hell there"
+        message: "Hello there"
         getPage: @getPage
         getPost: @getPost
         getPosts: @getPosts
@@ -47,23 +48,23 @@ export default
     methods:
         setBlog: ->
             @blogLoaded = false
-            @$http.get('/blog/meta').then(
-                (response) => 
+            @$http.get("/blogs/#{@blogID}").then(
+                (response) =>
                     @blog = response.data
                     @blogLoaded = true
             )
         setPages: ->
             @pagesLoaded = false
-            @$http.get('/blog/pages').then(
-                (response) => 
-                    @pages = response.data.items
+            @$http.get("/blogs/#{@blogID}/pages").then(
+                (response) =>
+                    @pages = response.data
                     @pagesLoaded = true
             )
         setPosts: ->
             @postsLoaded = false
-            @$http.get('/blog/posts').then(
+            @$http.get("/blogs/#{@blogID}/posts").then(
                 (response) =>
-                    @posts = response.data.items
+                    @posts = response.data
                     @postsLoaded = true
             )
         getPage: (title) ->
