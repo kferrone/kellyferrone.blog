@@ -12,7 +12,7 @@ const robotsTxtOpts = {
 }
 
 module.exports = {
-  baseUrl: process.env.VUE_APP_HOST,
+  publicPath: process.env.VUE_APP_HOST,
   chainWebpack: config => {
 
     //for coffee

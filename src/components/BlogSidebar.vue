@@ -1,16 +1,16 @@
 <template lang="pug">
 aside.blog-sidebar.sidebar.pure-u-1.pure-u-md-1-4
   header.header
-    img(
-        v-bind:src="getGravatar('info@kellyferrone.com')"
-        alt='Logo')
     template(v-if="blog")
+      img(
+        v-bind:src="getGravatar(blog.email)"
+        alt='Logo')
       h1.brand-title
         a(
           href='#')
-          | {{ blog.name }}
+          | {{ blog.title }}
       h2.brand-tagline
-        | {{ blog.description }}
+        | {{ blog.message }}
       p.view.user-page
         a(
           href='https://github.com/kferrone')

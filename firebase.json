@@ -23,7 +23,11 @@
         "function": "atomFeed"
       },
       {
-        "source": "/blogs/**",
+        "source": "/meta",
+        "function": "metaFx"
+      },
+      {
+        "source": "/blog/**",
         "function": "blogFx"
       },
       {

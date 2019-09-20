@@ -21,7 +21,7 @@ nav.nav
             v-if="page.title != 'Home'"
             :key="page.id")
             router-link.pure-button(
-                :to="'/' + sanitizeTitle(page.title)")
+                :to="'/' + page.slug")
                 | {{ page.title }}
 </template>
 

@@ -15,9 +15,9 @@ steps:
     - 'NODE_ENV=production'
     - 'VUE_APP_GOOGLE_ANALYTICS_ID=$_VUE_APP_GOOGLE_ANALYTICS_ID'
     - 'VUE_APP_GOOGLE_ANALYTICS_DEBUG=false'
-    
+
 - id: deploy
-  name: 'gcr.io/kellyferrone-211016/firebase'
+  name: 'gcr.io/kellyferrone/firebase'
   args: ['deploy','--only','hosting']
   env:
     - 'FIREBASE_TOKEN=$_FIREBASE_TOKEN'

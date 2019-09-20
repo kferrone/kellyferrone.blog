@@ -1,10 +1,10 @@
 <template lang="pug" >
   #app.pure-g.wrapper
-    BlogSidebar(
-        v-bind:blog="blog",
-        v-bind:pages="pages"
-    )
     template(v-if="pagesLoaded && postsLoaded && blogLoaded")
+        BlogSidebar(
+            v-bind:blog="blog",
+            v-bind:pages="pages"
+        )
         section.content.pure-u-1.pure-u-md-3-4
             BlogHeader(
                 :title="title"
@@ -35,7 +35,6 @@ export default
         pagesLoaded: false
         blogLoaded: false
         postsLoaded: false
-        blogID: process.env.VUE_APP_BLOG_ID
     provide: ->
         blog: @blog
         posts: @posts
@@ -51,34 +50,32 @@ export default
     methods:
         setBlog: ->
             @blogLoaded = false
-            @$http.get("/blogs/#{@blogID}").then(
+            @$http.get("/meta").then(
                 (response) =>
                     @blog = response.data
                     @blogLoaded = true
             )
         setPages: ->
             @pagesLoaded = false
-            @$http.get("/blogs/#{@blogID}/pages").then(
+            @$http.get("/blog/pages").then(
                 (response) =>
                     @pages = response.data
                     @pagesLoaded = true
             )
         setPosts: ->
             @postsLoaded = false
-            @$http.get("/blogs/#{@blogID}/posts").then(
+            @$http.get("/blog/posts").then(
                 (response) =>
                     @posts = response.data
                     @postsLoaded = true
             )
-        getPage: (title) ->
-            title = @sanitizeTitle(title)
+        getPage: (slug) ->
             @pages.filter(
-                (page) => @sanitizeTitle(page.title) == title
+                (page) => page.slug == slug
             )[0]
-        getPost: (title) ->
-            title = @sanitizeTitle(title)
+        getPost: (slug) ->
             @posts.filter(
-                (post) => @sanitizeTitle(post.title) == title
+                (post) => post.slug == slug
             )[0]
         getPosts: ->
             @posts

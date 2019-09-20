@@ -18,16 +18,18 @@ export default
         id: String
         title: String
         slug: String
+        exerpt: String
+        content: String
         permalink: String
         categories: Array
         tags: Array
-        date: String
+        published: String
+        updated: String
         draft: Boolean
         order: Number
         hideHeader: false
     data: ->
         hidden: false
-        content: ''
         loaded: false
     computed:
         linker: ->

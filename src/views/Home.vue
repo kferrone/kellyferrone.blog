@@ -5,7 +5,7 @@
 </template>
 
 <script lang="coffee">
-export default 
+export default
     name: 'home'
     inject: ['getPage','setTitle']
     data: ->
@@ -20,7 +20,7 @@ export default
             )
     created: ->
         @setTitle(@title)
-        @page = @getPage('Home')
+        @page = @getPage('home')
         @track()
 </script>
 

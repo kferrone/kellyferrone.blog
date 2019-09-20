@@ -41,12 +41,6 @@ export default
                 @post = null
                 @setTitle('404')
             @isLoaded = true
-        getCommentUrl: (blogID, postID, parentID = null) ->
-            baseURL = 'https://www.blogger.com/comment-iframe.g'
-            parent = if (parentID?) then "&parentID=#{parentID}" else ''
-            commentURL = "#{baseURL}?blogID=#{blogID}&postID=#{postID}#{parent}&blogspotRpcToken=3183554"
-        commentSubmitted: ->
-            console.log('something in the iframe happened',this.contentWindow.location)
     created: () ->
         @loadPost(@$route.params.title)
 </script>

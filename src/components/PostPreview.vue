@@ -18,7 +18,7 @@ export default
         post: Object
     computed:
         linker: ->
-            '/post/' + @sanitizeTitle(@post.title)
+            '/post/' + @post.slug
 </script>
 
 <style lang="sass">
