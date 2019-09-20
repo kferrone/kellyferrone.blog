@@ -15,6 +15,7 @@ steps:
     - 'NODE_ENV=production'
     - 'VUE_APP_GOOGLE_ANALYTICS_ID=$_VUE_APP_GOOGLE_ANALYTICS_ID'
     - 'VUE_APP_GOOGLE_ANALYTICS_DEBUG=false'
+    - 'VUE_APP_HOST=$_VUE_APP_HOST'
 
 - id: deploy
   name: 'gcr.io/kellyferrone/firebase'
@@ -25,3 +26,4 @@ steps:
 substitutions:
   _FIREBASE_TOKEN: token
   _VUE_APP_GOOGLE_ANALYTICS_ID: ua
+  _VUE_APP_HOST: https://example.com
