@@ -18,7 +18,7 @@ steps:
     - 'VUE_APP_HOST=$_VUE_APP_HOST'
 
 - id: deploy
-  name: 'gcr.io/kellyferrone/firebase'
+  name: 'gcr.io/$PROJECT_ID/firebase'
   args: ['deploy','--only','hosting']
   env:
     - 'FIREBASE_TOKEN=$_FIREBASE_TOKEN'
