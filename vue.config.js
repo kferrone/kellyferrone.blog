@@ -7,7 +7,7 @@ const robotsTxtOpts = {
       allow: "/"
     }
   ],
-  sitemap: `${process.env.VUE_APP_HOST}/${process.env.VUE_APP_BLOG_ID}/sitemap.xml`,
+  sitemap: `${process.env.VUE_APP_HOST}/sitemap.xml`,
   host: `${process.env.VUE_APP_HOST}`
 }
 
