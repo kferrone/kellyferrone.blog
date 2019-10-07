@@ -10,7 +10,7 @@ steps:
 
 - id: build
   name: 'gcr.io/cloud-builders/npm'
-  args: ['run','build']
+  args: ['run','build:prod']
   env:
     - 'NODE_ENV=production'
     - 'VUE_APP_GOOGLE_ANALYTICS_ID=$_VUE_APP_GOOGLE_ANALYTICS_ID'

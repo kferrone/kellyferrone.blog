@@ -5,6 +5,7 @@
             v-bind:blog="blog",
             v-bind:pages="pages"
         )
+        img(src="./assets/logo.png")
         section.content.pure-u-1.pure-u-md-3-4
             BlogHeader(
                 :title="title"

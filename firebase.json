@@ -1,39 +1,82 @@
 {
-  "hosting": {
-    "public": "dist/public/",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "rewrites": [{
-        "source": "/contact-me",
-        "function": "sendgridEmail"
-      },
-      {
-        "source": "/sitemap.xml",
-        "function": "siteMap"
-      },
-      {
-        "source": "/rss.xml",
-        "function": "rssFeed"
-      },
-      {
-        "source": "/atom.xml",
-        "function": "atomFeed"
-      },
-      {
-        "source": "/meta",
-        "function": "metaFx"
-      },
-      {
-        "source": "/blog/**",
-        "function": "blogFx"
-      },
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  }
+  "hosting": [
+    {
+      "target": "public",
+      "public": "dist/public/",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "/contact-me",
+          "function": "sendgridEmail"
+        },
+        {
+          "source": "/sitemap.xml",
+          "function": "siteMap"
+        },
+        {
+          "source": "/rss.xml",
+          "function": "rssFeed"
+        },
+        {
+          "source": "/atom.xml",
+          "function": "atomFeed"
+        },
+        {
+          "source": "/meta",
+          "function": "metaFx"
+        },
+        {
+          "source": "/blog/**",
+          "function": "blogFx"
+        },
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "target": "admin",
+      "public": "dist/admin/",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "/contact-me",
+          "function": "sendgridEmail"
+        },
+        {
+          "source": "/sitemap.xml",
+          "function": "siteMap"
+        },
+        {
+          "source": "/rss.xml",
+          "function": "rssFeed"
+        },
+        {
+          "source": "/atom.xml",
+          "function": "atomFeed"
+        },
+        {
+          "source": "/meta",
+          "function": "metaFx"
+        },
+        {
+          "source": "/blog/**",
+          "function": "blogFx"
+        },
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
 }

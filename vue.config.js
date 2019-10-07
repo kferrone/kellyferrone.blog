@@ -13,8 +13,8 @@ const robotsTxtOpts = {
 
 const devHost = 'http://localhost:5000/kellyferrone/us-central1';
 module.exports = {
-  outputDir: 'dist/public',
   publicPath: process.env.VUE_APP_HOST,
+  indexPath: 'foo.html',
   devServer: {
     proxy: {
       '/contact-me': {
@@ -38,6 +38,13 @@ module.exports = {
       }
     }
   },
+  pages: {
+    index: {
+      entry: 'src/main.js',
+      template: 'src/assets/blog.html',
+      filename: 'index.html'
+    }
+  },
   chainWebpack: config => {
 
     //for coffee
@@ -46,7 +53,13 @@ module.exports = {
       .test(/\.coffee$/)
       .use('coffee-loader')
       .loader('coffee-loader')
-      .end()
+      .end();
+
+    //config.entry('public').add('./src/main.js').end();
+    config.plugin('copy').tap(options => {
+      options[0][0].ignore.push('admin.html');
+      return options;
+    });
 
   },
   configureWebpack: {

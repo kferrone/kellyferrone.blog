@@ -5,8 +5,9 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "serve:fire": "firebase serve",
-    "build": "vue-cli-service build",
-    "build:fire": "vue-cli-service build --mode fire",
+    "build:prod": "vue-cli-service build",
+    "build": "vue-cli-service build --mode development --dest dist/public src/main.js",
+    "build:admin": "vue-cli-service build --mode development --dest dist/admin src/admin.js",
     "lint": "vue-cli-service lint",
     "deploy": "firebase deploy",
     "builder": "gcloud builds submit --config=./builder/cloudbuild.yaml ./builder"
