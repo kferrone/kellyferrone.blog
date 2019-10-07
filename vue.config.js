@@ -11,8 +11,33 @@ const robotsTxtOpts = {
   host: `${process.env.VUE_APP_HOST}`
 }
 
+const devHost = 'http://localhost:5000/kellyferrone/us-central1';
 module.exports = {
+  outputDir: 'dist/public',
   publicPath: process.env.VUE_APP_HOST,
+  devServer: {
+    proxy: {
+      '/contact-me': {
+        target: `${devHost}/sendgridEmail`
+      },
+      '/sitemap.xml': {
+        target: `${devHost}/siteMap`
+      },
+      '/rss.xml': {
+        target: `${devHost}/rssFeed`,
+        changeOrigin: true
+      },
+      '/atom.xml': {
+        target: `${devHost}/atomFeed`
+      },
+      '/meta': {
+        target: `${devHost}/metaFx`
+      },
+      '^/blog/*': {
+        target: `${devHost}/blogFx`
+      }
+    }
+  },
   chainWebpack: config => {
 
     //for coffee
