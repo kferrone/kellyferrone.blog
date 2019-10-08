@@ -22,8 +22,10 @@ steps:
   args: ['deploy','--only','hosting']
   env:
     - 'FIREBASE_TOKEN=$_FIREBASE_TOKEN'
+    - 'FIREBASERC=$_FIREBASERC'
 
 substitutions:
   _FIREBASE_TOKEN: token
+  _FIREBASERC: Your firebaserc file
   _VUE_APP_GOOGLE_ANALYTICS_ID: ua
   _VUE_APP_HOST: https://example.com

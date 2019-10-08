@@ -1,5 +1,5 @@
 <template lang="pug" >
-  #app.pure-g.wrapper
+  #layout.pure-g.wrapper
     template(v-if="pagesLoaded && postsLoaded && blogLoaded")
         BlogSidebar(
             v-bind:blog="blog",
