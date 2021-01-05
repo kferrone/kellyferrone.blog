@@ -13,7 +13,7 @@
     "builder": "gcloud builds submit --config=./builder/cloudbuild.yaml ./builder"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "purecss": "^1.0.0",
     "vue": "^2.5.17",
     "vue-analytics": "^5.16.4",
