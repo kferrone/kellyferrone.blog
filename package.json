@@ -27,7 +27,7 @@
     "coffeescript": "^2.3.2",
     "generate-robotstxt": "^7.1.0",
     "node-sass": "^4.11.0",
-    "pug": "^2.0.3",
+    "pug": "^3.0.1",
     "robotstxt-webpack-plugin": "^6.0.0",
     "sass-loader": "^7.1.0",
     "style-resources-loader": "^1.2.1",
